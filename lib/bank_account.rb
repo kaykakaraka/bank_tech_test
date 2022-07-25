@@ -4,11 +4,7 @@ class BankAccount
   end
 
   def deposit(amount, date)
-    if amount == 100
-      @deposit = 100
-    elsif amount == 50
-      @deposit = 50
-    end
+    @deposit = amount
   end
 
   def show_statement()
