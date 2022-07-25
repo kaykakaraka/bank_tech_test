@@ -7,11 +7,7 @@ class BankAccount
 
   def deposit(amount, date)
     @total += amount
-    if amount.is_a? Integer
-      deposit = "#{date} || || #{amount}.00 || #{@total}.00"
-    else 
-      deposit = "#{date} || || #{amount} || #{@total}"
-    end
+    deposit = "#{date} || || #{'%.2f' % amount} || #{'%.2f' % @total}"
     @statement.push(deposit)
   end
 
