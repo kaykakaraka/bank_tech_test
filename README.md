@@ -121,17 +121,7 @@ statement = Statement.new()
 account = BankAccount.new(statement)
 account.withdraw(50, 20/03/2023) => throws an error
 ```
-# Bank tech test - the challenge 
-
-Today, you'll practice doing a tech test.
-
-For most tech tests, you'll essentially have unlimited time.  This practice session is about producing the best code you can when there is a minimal time pressure.
-
-You'll get to practice your OO design and TDD skills.
-
-You'll work alone, and you'll also review your own code so you can practice reflecting on and improving your own work.
-
-## Specification
+# Specification
 
 ### Requirements
 
