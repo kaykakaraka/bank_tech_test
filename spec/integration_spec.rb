@@ -158,6 +158,11 @@ RSpec.describe 'account integration' do
       @account.deposit(100, '30/12/2020')
       expect { @account.deposit(100, '30/12/2019') }.to raise_error "Invalid Date: must be later than your most recent transaction"
     end
+
+    it 'throws the same error for the withdrawal method' do
+      @account.deposit(100, '29/12/2024')
+      expect { @account.withdraw(100, '30/12/24') }.to raise_error "Invalid Date"
+    end
   end
 
   context 'when the user tries to withdraw more money than they have' do
