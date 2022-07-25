@@ -143,5 +143,9 @@ RSpec.describe 'account integration' do
     it 'throws an error for an invalid year' do
       expect { @account.deposit(100, '30/12/-4') }.to raise_error "Invalid Date"
     end
+
+    it 'throws an error for a year with only two numbers' do
+      expect { @account.deposit(100, '30/12/24') }.to raise_error "Invalid Date"
+    end
   end
 end
