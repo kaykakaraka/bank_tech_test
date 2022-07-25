@@ -2,13 +2,15 @@ class BankAccount
   def initialize(io)
     @io = io
     @statement = []
+    @total = 0
   end
 
   def deposit(amount, date)
+    @total += amount
     if amount.is_a? Integer
-      deposit = "#{date} || || #{amount}.00 || #{amount}.00"
+      deposit = "#{date} || || #{amount}.00 || #{@total}.00"
     else 
-      deposit = "#{date} || || #{amount} || #{amount}"
+      deposit = "#{date} || || #{amount} || #{@total}"
     end
     @statement.push(deposit)
   end
