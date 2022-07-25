@@ -100,5 +100,14 @@ RSpec.describe 'account integration' do
       account.withdraw(75.52, '24/07/2022')
       account.show_statement
     end
+
+    it 'works for withdrawals with pennies when the deposit was an integer' do
+      io = double :io
+      expect(io).to receive(:puts).with(["date || credit || debit || balance", "24/07/2022 || 75.52 || || 24.48", "24/07/2022 || || 100.00 || 100.00"])
+      account = BankAccount.new(io)
+      account.deposit(100, '24/07/2022')
+      account.withdraw(75.52, '24/07/2022')
+      account.show_statement
+    end
   end
 end
