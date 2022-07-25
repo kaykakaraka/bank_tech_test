@@ -16,17 +16,10 @@ class DateChecker
   end
 
   def is_most_recent_date?(date)
-    if @most_recent_date == 0
-      return true
-    else
-      separate(date)
-      result = @most_recent_date <=> Date.new(@year.to_i, @month.to_i, @day.to_i)
-      if result == 1 
-        return false 
-      else
-        return true
-      end
-    end
+    if @most_recent_date == 0 then return true end
+    separate(date)
+    result = @most_recent_date <=> Date.new(@year.to_i, @month.to_i, @day.to_i)
+    result != 1 
   end
 
   def separate(date)
@@ -34,5 +27,4 @@ class DateChecker
     @month = date[3..4]
     @year = date[6..9]
   end
-  
 end
