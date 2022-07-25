@@ -81,6 +81,55 @@ end
 
 ![](images/BankAccountDesign.png?raw=true)
 
+## Examples
+
+# 1
+statement = Statement.new()
+account = BankAccount.new(statement)
+account.show_statement => date || credit || debit || balance
+  
+# 2
+statement = Statement.new()
+account = BankAccount.new(statement)
+account.deposit(100, 14/01/2023)
+account.show_statement => 
+```
+date || credit || debit || balance
+14/01/2023 || || 100.00 || 100.00
+```
+
+# 3
+statement = Statement.new()
+account = BankAccount.new(statement)
+account.deposit(100, 14/01/2023)
+account.withdraw(50, 16/01/2023)
+account.deposit(550, 20/02/2023)
+account.show_statement => 
+```
+date || credit || debit || balance
+20/02/2023 || || 550.00 || 600.00
+16/01/2021 || 50.00 || || 50.00
+14/01/2023 || || 100.00 || 100.00
+```
+# 4 
+statement = Statement.new()
+account = BankAccount.new(statement)
+account.deposit(100.00, 14/01/2023)
+account.withdraw(50.50, 16/01/2023)
+account.deposit(550.75, 20/02/2023)
+account.show_statement => 
+```
+date || credit || debit || balance
+20/02/2023 || || 550.75 || 600.25
+16/01/2021 || 50.50 || || 49.50
+14/01/2023 || || 100.00 || 100.00
+```
+
+# 5 - trying to withdraw more than they have
+statement = Statement.new()
+account = BankAccount.new(statement)
+account.withdraw(50, 20/03/2023) => throws an error
+
 # Bank tech test - the challenge 
 
 Today, you'll practice doing a tech test.
