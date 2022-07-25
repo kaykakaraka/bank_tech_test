@@ -164,5 +164,10 @@ RSpec.describe 'account integration' do
     it 'raises an error when no money has been deposited' do
       expect { @account.withdraw(100, '30/12/2019') }.to raise_error "Error: You do not have the funds for this withdrawal"
     end
+
+    it 'raises an error when less money has been deposited than they wish to withdraw' do
+      @account.deposit(75, '29/12/2019')
+      expect { @account.withdraw(100, '30/12/2019') }.to raise_error "Error: You do not have the funds for this withdrawal"
+    end
   end
 end

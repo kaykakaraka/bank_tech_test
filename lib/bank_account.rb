@@ -15,7 +15,7 @@ class BankAccount
   end
 
   def withdraw(amount, date) 
-    fail "Error: You do not have the funds for this withdrawal" if @balance == 0 
+    fail "Error: You do not have the funds for this withdrawal" if @balance < amount 
     @balance -= amount
     @statement.add_withdrawal(amount, date, @balance)
   end
