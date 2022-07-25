@@ -6,6 +6,7 @@ class BankAccount
   end
 
   def deposit(amount, date) 
+    fail 'Invalid Date' if is_invalid_date?(date)
     @balance += amount
     @statement.add_deposit(amount, date, @balance)
   end
@@ -17,5 +18,12 @@ class BankAccount
 
   def show_statement
     @io.puts(@statement.display_statement)
+  end
+
+  def is_invalid_date?(date)
+    day = date[0..1]
+    day = day.to_i
+    puts day
+    if day > 31 then return true end
   end
 end
