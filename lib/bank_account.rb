@@ -1,6 +1,7 @@
 class BankAccount
   def initialize(io, statement)
     @io = io
+    @statement = statement.new
   end
 
   def deposit(amount, date)
@@ -8,15 +9,12 @@ class BankAccount
     @date = date
   end
 
-  def show_statement()
-    if @date == "27/07/2022"
-      @io.puts(["date || credit || debit || balance", "27/07/2022 || || 50.00 || 50.00"])
-    elsif @deposit == 100
-      @io.puts(["date || credit || debit || balance", "24/07/2022 || || 100.00 || 100.00"])
-    elsif @deposit == 50
-      @io.puts(["date || credit || debit || balance", "24/07/2022 || || 50.00 || 50.00"])
-    else
+  def show_statement
+    if @deposit == nil
       @io.puts(["date || credit || debit || balance"])
+    else
+      header = "date || credit || debit || balance"
+      @io.puts([header, "#{@date} || || #{@deposit}.00 || #{@deposit}.00"])
     end
   end
 end
