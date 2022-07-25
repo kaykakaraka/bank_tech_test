@@ -44,8 +44,10 @@ RSpec.describe 'account integration' do
       account.deposit(50.75, '27/07/2022')
       account.show_statement
     end
+  end
 
-    xit 'shows two deposits on the statement' do
+  context 'user makes multiple deposits' do
+    it 'shows 2 deposits when two are made' do
       io = double :io
       expect(io).to receive(:puts).with(["date || credit || debit || balance", "24/07/2022 || || 100.00 || 100.00", "24/07/2022 || || 50.00 || 50.00"])
       account = BankAccount.new(io, Statement)
@@ -54,5 +56,4 @@ RSpec.describe 'account integration' do
       account.show_statement
     end
   end
-
 end

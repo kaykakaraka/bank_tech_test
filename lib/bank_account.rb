@@ -1,7 +1,7 @@
 class BankAccount
   def initialize(io, statement)
     @io = io
-    @statement = ["date || credit || debit || balance"]
+    @statement = []
   end
 
   def deposit(amount, date)
@@ -14,6 +14,8 @@ class BankAccount
   end
 
   def show_statement
+    @statement.push("date || credit || debit || balance")
+    @statement = @statement.reverse
     @io.puts(@statement)
   end
 end
