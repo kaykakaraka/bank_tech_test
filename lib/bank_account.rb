@@ -5,9 +5,7 @@ class BankAccount
 
   def deposit(amount, date)
     @deposit = amount
-    if date == "27/07/2022"
-      @date = "27/07/2022"
-    end
+    @date = date
   end
 
   def show_statement()
