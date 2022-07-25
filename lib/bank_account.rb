@@ -10,10 +10,10 @@ class BankAccount
   end
 
   def show_statement
+    header = "date || credit || debit || balance"
     if @deposit == nil
-      @io.puts(["date || credit || debit || balance"])
+      @io.puts([header])
     else
-      header = "date || credit || debit || balance"
       @io.puts([header, "#{@date} || || #{@deposit}.00 || #{@deposit}.00"])
     end
   end
