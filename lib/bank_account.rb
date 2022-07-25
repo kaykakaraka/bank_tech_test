@@ -1,25 +1,21 @@
 class BankAccount
-  def initialize(io)
+  def initialize(io, statement_class)
     @io = io
-    @statement = []
+    @statement = statement_class.new 
     @balance = 0
   end
 
-  def deposit(amount, date)
+  def deposit(amount, date) 
     @balance += amount
-    deposit = "#{date} || || #{'%.2f' % amount} || #{'%.2f' % @balance}"
-    @statement.push(deposit)
+    @statement.addDeposit(amount, date, @balance)
   end
 
-  def withdraw(amount, date)
+  def withdraw(amount, date) 
     @balance -= amount
-    withdrawal = "#{date} || #{'%.2f' % amount} || || #{'%.2f' % @balance}"
-    @statement.push(withdrawal)
+    @statement.addWithdrawal(amount, date, @balance)
   end
 
   def show_statement
-    @statement.push("date || credit || debit || balance")
-    @statement = @statement.reverse
-    @io.puts(@statement)
+    @io.puts(@statement.displayStatement)
   end
 end
