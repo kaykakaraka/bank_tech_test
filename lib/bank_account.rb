@@ -7,6 +7,7 @@ class BankAccount
   end
 
   def deposit(amount, date) 
+    fail 'Invalid Date: must be later than your most recent transaction' unless @date_checker.is_most_recent_date?(date)
     fail 'Invalid Date' unless @date_checker.is_valid_date?(date)
     @balance += amount
     @statement.add_deposit(amount, date, @balance)

@@ -52,7 +52,7 @@ RSpec.describe 'account integration' do
       @account.show_statement
     end
 
-    it 'shows 2 deposits with pennies that are correctly added and displayed' do
+    fit 'shows 2 deposits with pennies that are correctly added and displayed' do
       expect(@io).to receive(:puts).with(
         ['date || credit || debit || balance',
          '24/07/2022 || || 100.47 || 151.22',
@@ -147,6 +147,16 @@ RSpec.describe 'account integration' do
 
     it 'throws an error for a year with only two numbers' do
       expect { @account.deposit(100, '30/12/24') }.to raise_error "Invalid Date"
+    end
+
+    it 'throws an error if the date is not later than the date of the transaction it follows' do
+      @account.deposit(100, '30/12/2022')
+      expect { @account.deposit(100, '12/12/2022') }.to raise_error "Invalid Date: must be later than your most recent transaction"
+    end
+
+    it 'throws an error for a different combination of dates in the wrong order' do
+      @account.deposit(100, '30/12/2020')
+      expect { @account.deposit(100, '30/12/2019') }.to raise_error "Invalid Date: must be later than your most recent transaction"
     end
   end
 end
