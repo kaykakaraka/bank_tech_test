@@ -83,12 +83,12 @@ end
 
 ## Examples
 
-# 1
+# 1 - before any deposits or withdrawals
 statement = Statement.new()
 account = BankAccount.new(statement)
 account.show_statement => date || credit || debit || balance
   
-# 2
+# 2 - deposits
 statement = Statement.new()
 account = BankAccount.new(statement)
 account.deposit(100, 14/01/2023)
@@ -98,7 +98,7 @@ date || credit || debit || balance
 14/01/2023 || || 100.00 || 100.00
 ```
 
-# 3
+# 3 - deposits and withdrawals
 statement = Statement.new()
 account = BankAccount.new(statement)
 account.deposit(100, 14/01/2023)
@@ -111,7 +111,8 @@ date || credit || debit || balance
 16/01/2021 || 50.00 || || 50.00
 14/01/2023 || || 100.00 || 100.00
 ```
-# 4 
+
+# 4 - works with decimals
 statement = Statement.new()
 account = BankAccount.new(statement)
 account.deposit(100.00, 14/01/2023)
