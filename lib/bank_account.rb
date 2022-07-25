@@ -1,5 +1,5 @@
 class BankAccount
-  def initialize(io, statement)
+  def initialize(io)
     @io = io
     @statement = []
   end
