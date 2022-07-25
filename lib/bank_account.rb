@@ -13,7 +13,7 @@ class BankAccount
 
   def withdraw(amount, date)
     @balance -= amount
-    withdrawal = "24/07/2022 || #{amount}.00 || || #{@balance}.00"
+    withdrawal = "24/07/2022 || #{'%.2f' % amount} || || #{'%.2f' % @balance}"
     @statement.push(withdrawal)
   end
 
