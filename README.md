@@ -16,10 +16,6 @@ So that I can spend the money I have saved
 I would like to withdraw money
 
 As a customer
-So that I know how much I have saved
-I would like to see my bank balance
-
-As a customer
 So I can keep track of my finances
 I would like to see what I have deposited 
 
@@ -42,6 +38,7 @@ I would like it to be formatted in columns
 
 ### Design
 
+```
 class BankAccount
   def initialize(statement) 
     # start with an empty account
@@ -61,22 +58,7 @@ class BankAccount
   end
 
 end 
-
-class Statement
-  def initialize
-    # 
-  end
-
-  def record(details)
-    # adds the details of the deposit or withdrawal to the statement
-  end
-
-  def format
-    # formats the statement into columns
-  end
-
-end
-
+```
 ## Diagram
 
 ![](images/BankAccountDesign.png?raw=true)
