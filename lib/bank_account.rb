@@ -11,6 +11,12 @@ class BankAccount
 
   def show_statement
     header = "date || credit || debit || balance"
-    @deposit == nil ? @io.puts([header]) : @io.puts([header, "#{@date} || || #{@deposit}.00 || #{@deposit}.00"])
+    if @deposit == nil 
+      @io.puts([header]) 
+    elsif @deposit.is_a? Integer
+      @io.puts([header, "#{@date} || || #{@deposit}.00 || #{@deposit}.00"])
+    else
+      @io.puts([header, "#{@date} || || #{@deposit} || #{@deposit}"])
+    end
   end
 end
