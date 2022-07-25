@@ -15,7 +15,7 @@ class Statement
 
   def displayStatement
     format_statement
-    @statement
+    return @statement
   end
 
   def format_statement
