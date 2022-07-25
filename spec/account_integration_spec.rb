@@ -30,6 +30,25 @@ RSpec.describe 'account integration' do
       account.deposit(50, '24/07/2022')
       account.show_statement
     end
+
+    it 'shows a deposit with a different date of 27/07/2022 on the statement' do
+      io = double :io
+      expect(io).to receive(:puts).with(["date || credit || debit || balance", "27/07/2022 || || 50.00 || 50.00"])
+      statement = Statement.new
+      account = BankAccount.new(io, statement)
+      account.deposit(50, '27/07/2022')
+      account.show_statement
+    end
+
+    xit 'shows two deposits on the statement' do
+      io = double :io
+      expect(io).to receive(:puts).with(["date || credit || debit || balance", "24/07/2022 || || 100.00 || 100.00", "24/07/2022 || || 50.00 || 50.00"])
+      statement = Statement.new
+      account = BankAccount.new(io, statement)
+      account.deposit(50, '24/07/2022')
+      account.deposit(100, '24/07/2022')
+      account.show_statement
+    end
   end
 
 end

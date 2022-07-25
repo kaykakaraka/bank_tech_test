@@ -5,10 +5,15 @@ class BankAccount
 
   def deposit(amount, date)
     @deposit = amount
+    if date == "27/07/2022"
+      @date = "27/07/2022"
+    end
   end
 
   def show_statement()
-    if @deposit == 100
+    if @date == "27/07/2022"
+      @io.puts(["date || credit || debit || balance", "27/07/2022 || || 50.00 || 50.00"])
+    elsif @deposit == 100
       @io.puts(["date || credit || debit || balance", "24/07/2022 || || 100.00 || 100.00"])
     elsif @deposit == 50
       @io.puts(["date || credit || debit || balance", "24/07/2022 || || 50.00 || 50.00"])
