@@ -159,4 +159,10 @@ RSpec.describe 'account integration' do
       expect { @account.deposit(100, '30/12/2019') }.to raise_error "Invalid Date: must be later than your most recent transaction"
     end
   end
+
+  context 'when the user tries to withdraw more money than they have' do
+    it 'raises an error when no money has been deposited' do
+      expect { @account.withdraw(100, '30/12/2019') }.to raise_error "Error: You do not have the funds for this withdrawal"
+    end
+  end
 end
