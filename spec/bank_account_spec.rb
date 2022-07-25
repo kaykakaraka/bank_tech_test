@@ -62,5 +62,14 @@ RSpec.describe 'account integration' do
       account.deposit(100.47, '24/07/2022')
       account.show_statement
     end
+
+    it 'shows 2 deposits, one an integer and one with pennies, that are correctly added and displayed' do
+      io = double :io
+      expect(io).to receive(:puts).with(["date || credit || debit || balance", "24/07/2022 || || 100.00 || 150.75", "24/07/2022 || || 50.75 || 50.75"])
+      account = BankAccount.new(io)
+      account.deposit(50.75, '24/07/2022')
+      account.deposit(100.00, '24/07/2022')
+      account.show_statement
+    end
   end
 end
