@@ -1,26 +1,25 @@
 class Statement
-  def initialize 
+  def initialize
     @statement = []
   end
 
-  def addDeposit(amount, date, balance)
+  def add_deposit(amount, date, balance)
     deposit = "#{date} || || #{'%.2f' % amount} || #{'%.2f' % balance}"
     @statement.push(deposit)
   end
 
-  def addWithdrawal(amount, date, balance)
+  def add_withdrawal(amount, date, balance)
     withdrawal = "#{date} || #{'%.2f' % amount} || || #{'%.2f' % balance}"
     @statement.push(withdrawal)
   end
 
-  def displayStatement
+  def display_statement
     format_statement
     return @statement
   end
 
   def format_statement
-    @statement.push("date || credit || debit || balance")
+    @statement.push('date || credit || debit || balance')
     @statement = @statement.reverse
   end
-
 end

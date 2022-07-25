@@ -7,15 +7,15 @@ class BankAccount
 
   def deposit(amount, date) 
     @balance += amount
-    @statement.addDeposit(amount, date, @balance)
+    @statement.add_deposit(amount, date, @balance)
   end
 
   def withdraw(amount, date) 
     @balance -= amount
-    @statement.addWithdrawal(amount, date, @balance)
+    @statement.add_withdrawal(amount, date, @balance)
   end
 
   def show_statement
-    @io.puts(@statement.displayStatement)
+    @io.puts(@statement.display_statement)
   end
 end
