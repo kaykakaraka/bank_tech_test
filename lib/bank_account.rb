@@ -1,22 +1,19 @@
 class BankAccount
   def initialize(io, statement)
     @io = io
-    @statement = statement.new
+    @statement = ["date || credit || debit || balance"]
   end
 
   def deposit(amount, date)
-    @deposit = amount
-    @date = date
+    if amount.is_a? Integer
+      deposit = "#{date} || || #{amount}.00 || #{amount}.00"
+    else 
+      deposit = "#{date} || || #{amount} || #{amount}"
+    end
+    @statement.push(deposit)
   end
 
   def show_statement
-    header = "date || credit || debit || balance"
-    if @deposit == nil 
-      @io.puts([header]) 
-    elsif @deposit.is_a? Integer
-      @io.puts([header, "#{@date} || || #{@deposit}.00 || #{@deposit}.00"])
-    else
-      @io.puts([header, "#{@date} || || #{@deposit} || #{@deposit}"])
-    end
+    @io.puts(@statement)
   end
 end
