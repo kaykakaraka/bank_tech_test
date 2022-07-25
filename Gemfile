@@ -5,4 +5,5 @@ source 'https://rubygems.org'
 # gem "rails"
 
 gem 'rspec', '~> 3.11'
-gem 'rubocop', require: false
+gem 'rubocop', require: false, group: :test
+gem 'simplecov', require: false, group: :test
