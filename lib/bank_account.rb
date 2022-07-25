@@ -2,12 +2,12 @@ class BankAccount
   def initialize(io)
     @io = io
     @statement = []
-    @total = 0
+    @balance = 0
   end
 
   def deposit(amount, date)
-    @total += amount
-    deposit = "#{date} || || #{'%.2f' % amount} || #{'%.2f' % @total}"
+    @balance += amount
+    deposit = "#{date} || || #{'%.2f' % amount} || #{'%.2f' % @balance}"
     @statement.push(deposit)
   end
 

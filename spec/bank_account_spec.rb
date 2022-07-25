@@ -82,5 +82,8 @@ RSpec.describe 'account integration' do
       account.withdraw(100.00, '24/07/2022')
       account.show_statement
     end
+
+    it 'shows a different withdrawal and different balance on the statement' do
+    end
   end
 end
