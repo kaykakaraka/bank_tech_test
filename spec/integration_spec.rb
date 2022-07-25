@@ -132,8 +132,12 @@ RSpec.describe 'account integration' do
   end
 
   context 'when user enters an invalid date' do
-    it 'throws an error' do
+    it 'throws an error for an invalid day of the month' do
       expect { @account.deposit(100, '35/07/2022') }.to raise_error "Invalid Date"
+    end
+
+    it 'throws an error for an invalid month' do
+      expect { @account.deposit(100, '30/15/2022') }.to raise_error "Invalid Date"
     end
   end
 end
