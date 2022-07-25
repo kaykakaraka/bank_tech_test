@@ -1,10 +1,11 @@
 require 'bank_account'
 require 'statement'
+require 'date_checker'
 
 RSpec.describe 'account integration' do
   before(:each) do
     @io = double :io
-    @account = BankAccount.new(@io, Statement)
+    @account = BankAccount.new(@io, Statement, DateChecker)
   end
   context 'user opens an account but does not deposit or withdraw' do
     it 'shows an empty statement' do

@@ -1,12 +1,13 @@
 class BankAccount
-  def initialize(io, statement_class)
+  def initialize(io, statement_class, date_checker)
     @io = io
     @statement = statement_class.new 
     @balance = 0
+    @date_checker = date_checker.new
   end
 
   def deposit(amount, date) 
-    fail 'Invalid Date' unless is_valid_date?(date)
+    fail 'Invalid Date' unless @date_checker.is_valid_date?(date)
     @balance += amount
     @statement.add_deposit(amount, date, @balance)
   end
@@ -20,13 +21,5 @@ class BankAccount
     @io.puts(@statement.display_statement)
   end
 
-  def is_valid_date?(date)
-    if date.include?('-') then return false end
-    day = date[0..1].to_i
-    month = date[3..4].to_i
-    year = date[6..9]
-    if year.length != 4 then return false end
-    year = year.to_i
-    Date.valid_date?(year, month, day)
-  end
+ 
 end
