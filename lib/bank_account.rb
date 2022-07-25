@@ -21,6 +21,7 @@ class BankAccount
   end
 
   def is_valid_date?(date)
+    if date.include?('-') then return false end
     day = date[0..1].to_i
     month = date[3..4].to_i
     year = date[6..9].to_i
