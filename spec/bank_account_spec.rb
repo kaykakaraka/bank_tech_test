@@ -72,4 +72,15 @@ RSpec.describe 'account integration' do
       account.show_statement
     end
   end
+
+  context 'user makes a deposit and then a withdrawal' do
+    it 'shows the deposit and withdrawal on the statement' do
+      io = double :io
+      expect(io).to receive(:puts).with(["date || credit || debit || balance", "24/07/2022 || 50.00 || || 50.00", "24/07/2022 || || 100.00 || 100.00"])
+      account = BankAccount.new(io)
+      account.deposit(100.00, '24/07/2022')
+      account.withdraw(100.00, '24/07/2022')
+      account.show_statement
+    end
+  end
 end
