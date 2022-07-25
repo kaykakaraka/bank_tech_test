@@ -3,6 +3,6 @@ class BankAccount
   end
 
   def show_statement()
-    return "date || credit || debit || balance"
+    "date || credit || debit || balance"
   end
 end
