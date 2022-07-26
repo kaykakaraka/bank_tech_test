@@ -22,7 +22,7 @@ If I had more time, I would:
 
 * Clone the repo using `git clone`
 * run `bundle install`
-* Run `rpsec` for tests and coverage
+* Run `rspec` for tests and coverage
 * Run `ruby example.rb` for an example of usage
 * Run `rubocop` for linting
 * Enter the REPL using `irb` and require the files to experiment with using the code.
@@ -30,7 +30,7 @@ If I had more time, I would:
 ### Dependencies
 
 This repo uses:
-* RSPEC for testing
+* rspec for testing
 * SimpleCov for coverage
 * rubocop for linting
 
