@@ -27,4 +27,17 @@ RSpec.describe Statement do
       expect(statement.statement).to eq ['date || credit || debit || balance', '25/07/2022 || || 150.00 || 150.00']
     end
   end
+
+  context 'when multiple deposits are made' do
+    it 'shows the deposits on the statement, in reverse order' do
+      statement = Statement.new
+      statement.add_deposit(150,'25/07/2022', 150)
+      statement.add_deposit(100, '26/07/2022', 250)
+      expect(statement.statement).to eq [
+        'date || credit || debit || balance',
+        '26/07/2022 || || 100.00 || 250.00',
+        '25/07/2022 || || 150.00 || 150.00'
+      ]
+    end
+  end
 end
