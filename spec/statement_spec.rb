@@ -40,4 +40,17 @@ RSpec.describe Statement do
       ]
     end
   end
+
+  context 'when a deposit and withdrawal are made' do
+    it 'shows both the deposit and withdrawal on the statement' do
+      statement = Statement.new
+      statement.add_deposit(150,'25/07/2022', 150)
+      statement.add_withdrawal(100, '26/07/2022', 50)
+      expect(statement.statement).to eq [
+        'date || credit || debit || balance',
+        '26/07/2022 || 100.00 || || 50.00',
+        '25/07/2022 || || 150.00 || 150.00'
+      ]
+    end
+  end
 end
