@@ -6,6 +6,17 @@ You can:
  * withdraw money, giving an amount in decimals or integers, and a date,
  * print your bank statement and see a history of your transactions, including dates.
 
+ It has the following, purposeful, limitations:
+ * date should be entered as a string in the format '24/04/1993'. If the month / day / year are not entered in that format, it will throw an error
+ * amount can be an integer or have pennies
+ * you can only withdraw the amount of money you have in the account
+ * you can only enter transactions in chronological order. For example, if you deposit money on 24/05/2021, and then try to deposit money on 23/05/2021, it will throw an error
+
+ If I had more time, I would:
+ * raise errors for more incorrect inputs e.g. type errors
+ * allow a variety of date formats
+
+
 ### Setting up this repo on your computer
 
 * Clone the repo using `git clone`
@@ -130,6 +141,25 @@ class Statement
   end
 end
 
+class DateChecker
+  def check_date(date) # date is a string
+    # calls the other methods, checks if date is valid
+  end
+
+  private 
+
+  def valid_date?(date)
+    # 
+  end
+
+  def most_recent_date?
+    # determines if the date is the most recent date (which it should be)
+  end
+
+  def separate(date)
+    # splits up into month / year / day
+  end
+end
 
 ```
 ## Diagram
