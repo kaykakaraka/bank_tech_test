@@ -20,6 +20,6 @@ class BankAccount
   end
 
   def print_statement
-    @io.puts(@statement.display_statement)
+    @io.puts(@statement.statement)
   end
 end

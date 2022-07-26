@@ -13,7 +13,7 @@ class Statement
     @statement.push(withdrawal)
   end
 
-  def display_statement
+  def statement
     format_statement
     return @statement
   end
