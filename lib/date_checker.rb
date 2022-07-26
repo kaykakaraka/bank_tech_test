@@ -1,3 +1,5 @@
+require 'date'
+
 class DateChecker
   def check_date(date)
     separate(date)
