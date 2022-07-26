@@ -65,13 +65,22 @@ RSpec.describe Statement do
     end
   end
 
-  context 'when several transactions are made includin' do
-    xit 'shows all transactions' do
+  context 'when several transactions are made' do
+    it 'shows all transactions' do
       statement = Statement.new
       statement.add_deposit(150,'25/07/2022', 150)
       statement.add_deposit(100,'26/07/2022', 250)
       statement.add_withdrawal(49.50, '27/07/2022', 200.50)
-      statement.add_deposit(25.10)
+      statement.add_deposit(25.10, '28/07/2022', 225.60)
+      statement.add_withdrawal(120, '28/07/2022', 105.60)
+      expect(statement.statement).to eq [
+        'date || credit || debit || balance',
+        '28/07/2022 || 120.00 || || 105.60',
+        '28/07/2022 || || 25.10 || 225.60',
+        '27/07/2022 || 49.50 || || 200.50',
+        '26/07/2022 || || 100.00 || 250.00',
+        '25/07/2022 || || 150.00 || 150.00'
+      ]
     end
   end
 end
