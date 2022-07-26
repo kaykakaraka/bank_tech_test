@@ -75,20 +75,19 @@ RSpec.describe DateChecker do
   context 'when the date is the same as the most recent date' do
     it 'passes' do
       @date_checker.check_date('21/04/2022')
-      expect { @date_checker.check_date('21/04/2022') }.to_not raise_error 'Invalid Date'
-      expect { @date_checker.check_date('21/04/2022') }.to_not raise_error 'Invalid Date: must be later than your most recent transaction'
+      expect { @date_checker.check_date('21/04/2022') }.to_not raise_error
     end
   end
 
   context 'when the date is in a valid format' do
     it 'passes' do
-      expect { @date_checker.check_date('21/04/2022') }.to_not raise_error 'Invalid Date'
+      expect { @date_checker.check_date('21/04/2022') }.to_not raise_error
     end
   end
 
   context 'when the date is the first date' do
     it 'passes' do
-      expect { @date_checker.check_date('21/04/2022') }.to_not raise_error 'Invalid Date: must be later than your most recent transaction'
+      expect { @date_checker.check_date('21/04/2022') }.to_not raise_error
     end
   end
 end
