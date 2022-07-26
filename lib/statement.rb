@@ -18,6 +18,8 @@ class Statement
     return @statement
   end
 
+  private 
+
   def format_statement
     @statement.push('date || credit || debit || balance')
     @statement = @statement.reverse

@@ -7,6 +7,8 @@ class DateChecker
     @most_recent_date = Date.new(@year.to_i, @month.to_i, @day.to_i)
   end
 
+  private 
+
   def valid_date?(date)
     return false if date.include?('-') || @year.length != 4 
     Date.valid_date?(@year.to_i, @month.to_i, @day.to_i) 
