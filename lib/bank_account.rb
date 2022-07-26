@@ -19,7 +19,7 @@ class BankAccount
     @statement.add_withdrawal(amount, date, @balance)
   end
 
-  def show_statement
+  def print_statement
     @io.puts(@statement.display_statement)
   end
 end
