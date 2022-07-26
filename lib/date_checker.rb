@@ -10,8 +10,7 @@ class DateChecker
     if date.include?('-') then return false end
     separate(date)
     if @year.length != 4 then return false end
-    return false unless Date.valid_date?(@year.to_i, @month.to_i, @day.to_i)
-    return true
+    Date.valid_date?(@year.to_i, @month.to_i, @day.to_i) 
   end
 
   def most_recent_date?(date)
