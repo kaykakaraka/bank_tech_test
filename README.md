@@ -36,6 +36,10 @@ This repo uses:
 
 As a simple task, these were all the dependencies I needed and they worked smoothly with my process.
 
+### Example of Use in the Terminal
+
+![](images/TerminalUse.png?raw=true)
+
 # Specification
 
 ### Requirements
