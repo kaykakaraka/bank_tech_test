@@ -68,4 +68,26 @@ RSpec.describe BankAccount do
       account.withdraw(50, '28/10/2023')
     end
   end
+
+  context 'account receieves multiple strings in an array from the statement' do
+    it 'prints all of the array' do
+      fake_statement_class = double(:statement, 
+        new: fake_statement = double(:statement_object, 
+          statement: [
+            'date || credit || debit || balance',
+            '26/07/2022 || || 150.00 || 250.00',
+            '25/07/2022 || || 100.00 || 100.00'
+            ]))
+      fake_date_checker = double(:date_checker, new: fake_date_checker1 = double(:date_checker_object))
+      io = double :io
+      expect(io).to receive(:puts).with([
+        'date || credit || debit || balance',
+        '26/07/2022 || || 150.00 || 250.00',
+        '25/07/2022 || || 100.00 || 100.00'
+      ]) 
+      account = BankAccount.new(io, fake_statement_class, fake_date_checker)
+      account.print_statement
+    end
+  end
+
 end
