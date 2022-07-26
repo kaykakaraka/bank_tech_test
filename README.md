@@ -6,14 +6,14 @@ You can:
  * withdraw money, giving an amount in decimals or integers, and a date,
  * print your bank statement and see a history of your transactions, including dates.
 
- It has the following, purposeful, limitations:
+It has the following, purposeful, limitations:
  * date should be entered as a string in the format '24/04/1993'. If the month / day / year are not entered in that format, it will throw an error
  * amount can be an integer or have pennies
  * amounts with more than 2 decimal places are rounded to 2 decimal places
  * you can only withdraw the amount of money you have in the account
  * you can only enter transactions in chronological order. For example, if you deposit money on 24/05/2021, and then try to deposit money on 23/05/2021, it will throw an error
 
- If I had more time, I would:
+If I had more time, I would:
  * raise errors for more incorrect inputs e.g. type errors
  * allow a variety of date formats
 
@@ -58,6 +58,8 @@ I began by writing user stories, designing the outline of the classes and diagra
 The Statement class and the BankAccount class I separated as I felt that statements hold state that are separate from the actual interacting of depositing and withdrawing money. This separation should also mean that it would be easier to add more functionality - for example, if the BankAccount class were to add options to display a balance or add an interest rate.
 
 I chose to have the BankAccount class initaliaze the DateChecker and the Statement. This is because they are not used outside of the class.
+
+I used a TDD process throughout. I focused on the inputs and outputs of the program, using the integration test suite as the centre of development. When I felt happy with these tests I created unit tests for each class, and discovered some further edge cases to test in the process.
 
 ### User Stories
 
@@ -165,7 +167,13 @@ end
 ```
 ## Diagram
 
+Original design
+
 ![](images/BankAccountDesign.png?raw=true)
+
+Updated design
+
+![](images/UpdatedBankAccountDesign.png?raw=true)
 
 ## Examples
 
