@@ -81,6 +81,7 @@ RSpec.describe DateChecker do
 
   context 'when the date is in a valid format' do
     it 'passes' do
+      @date_checker.check_date('22/02/2022')
       expect { @date_checker.check_date('21/04/2022') }.to_not raise_error
     end
   end
