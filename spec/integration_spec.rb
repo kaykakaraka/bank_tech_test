@@ -132,6 +132,26 @@ RSpec.describe 'account integration' do
     end
   end
 
+  context 'the user enters an amount with more than 2 decimal places' do
+    it 'rounds the number up when appropriate' do
+      expect(@io).to receive(:puts).with([
+        'date || credit || debit || balance',
+        '29/12/2019 || || 75.24 || 75.24',
+      ])
+      @account.deposit(75.238, '29/12/2019')
+      @account.print_statement
+    end
+
+    it 'rounds the number down when appropriate' do
+      expect(@io).to receive(:puts).with([
+        'date || credit || debit || balance',
+        '29/12/2019 || || 75.23 || 75.23',
+      ])
+      @account.deposit(75.233, '29/12/2019')
+      @account.print_statement
+    end
+  end
+
   context 'when user enters an invalid date' do
     it 'throws an error for an invalid day of the month' do
       expect { @account.deposit(100, '35/07/2022') }.to raise_error "Invalid Date"
@@ -181,4 +201,6 @@ RSpec.describe 'account integration' do
       expect { @account.withdraw(100, '30/12/2019') }.to raise_error "Error: You do not have the funds for this withdrawal"
     end
   end
+
+  
 end
