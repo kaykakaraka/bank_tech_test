@@ -7,9 +7,8 @@ class DateChecker
   end
 
   def valid_date?(date)
-    if date.include?('-') then return false end
     separate(date)
-    if @year.length != 4 then return false end
+    return false if date.include?('-') || @year.length != 4 
     Date.valid_date?(@year.to_i, @month.to_i, @day.to_i) 
   end
 
