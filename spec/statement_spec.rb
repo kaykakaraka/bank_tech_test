@@ -52,5 +52,26 @@ RSpec.describe Statement do
         '25/07/2022 || || 150.00 || 150.00'
       ]
     end
+
+    it 'shows deposits and withdrawal with pennies' do
+      statement = Statement.new
+      statement.add_deposit(150.50,'25/07/2022', 150.50)
+      statement.add_withdrawal(100.25, '26/07/2022', 50.25)
+      expect(statement.statement).to eq [
+        'date || credit || debit || balance',
+        '26/07/2022 || 100.25 || || 50.25',
+        '25/07/2022 || || 150.50 || 150.50'
+      ]
+    end
+  end
+
+  context 'when several transactions are made includin' do
+    xit 'shows all transactions' do
+      statement = Statement.new
+      statement.add_deposit(150,'25/07/2022', 150)
+      statement.add_deposit(100,'26/07/2022', 250)
+      statement.add_withdrawal(49.50, '27/07/2022', 200.50)
+      statement.add_deposit(25.10)
+    end
   end
 end
