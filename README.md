@@ -9,6 +9,7 @@ You can:
  It has the following, purposeful, limitations:
  * date should be entered as a string in the format '24/04/1993'. If the month / day / year are not entered in that format, it will throw an error
  * amount can be an integer or have pennies
+ * amounts with more than 2 decimal places are rounded to 2 decimal places
  * you can only withdraw the amount of money you have in the account
  * you can only enter transactions in chronological order. For example, if you deposit money on 24/05/2021, and then try to deposit money on 23/05/2021, it will throw an error
 
