@@ -12,7 +12,7 @@ RSpec.describe BankAccount do
     end
   end
 
-  context 'a deposit is added' do
+  context 'when a deposit is added' do
     it 'passes the deposit and balance to the statement class, and the date to the date checker' do
       fake_statement_class = double(:statement, new: fake_statement = double(:statement_object)) 
       fake_date_checker = double(:date_checker, new: fake_date_checker1 = double(:date_checker_object))
@@ -24,7 +24,7 @@ RSpec.describe BankAccount do
     end
   end
 
-  context 'multiple deposits are made' do
+  context 'when multiple deposits are made' do
     it 'passes the sum of this balance to the statement class' do
       io = double :io
       fake_statement_class = double(:statement, new: fake_statement = double(:statement_object))
@@ -39,7 +39,7 @@ RSpec.describe BankAccount do
     end
   end
 
-  context 'a deposit and a withdrawal are made' do
+  context 'when a deposit and a withdrawal are made' do
     it 'passes the sum of this balance to the statement class' do
       io = double :io
       fake_statement_class = double(:statement, new: fake_statement = double(:statement_object))
@@ -54,7 +54,7 @@ RSpec.describe BankAccount do
     end
   end
 
-  context 'deposits on two different dates are made' do
+  context 'when deposits on two different dates are made' do
     it 'passes both dates to the date checker' do
       io = double :io
       fake_statement_class = double(:statement, new: fake_statement = double(:statement_object))
@@ -69,7 +69,7 @@ RSpec.describe BankAccount do
     end
   end
 
-  context 'account receieves multiple strings in an array from the statement' do
+  context 'when the account receieves multiple strings in an array from the statement' do
     it 'prints all of the array' do
       fake_statement_class = double(:statement, 
         new: fake_statement = double(:statement_object, 

@@ -17,7 +17,7 @@ RSpec.describe DateChecker do
     end
   end
 
-  context 'when the date contains a negative numebr' do
+  context 'when the date contains a negative number' do
     it 'fails' do
       expect { @date_checker.check_date('24/-2/2019') }.to raise_error 'Invalid Date'
     end

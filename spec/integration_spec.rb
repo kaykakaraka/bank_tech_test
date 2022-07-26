@@ -7,14 +7,14 @@ RSpec.describe 'account integration' do
     @io = double :io
     @account = BankAccount.new(@io, Statement, DateChecker)
   end
-  context 'user opens an account but does not deposit or withdraw' do
+  context 'when the user opens an account but does not deposit or withdraw' do
     it 'shows an empty statement' do
       expect(@io).to receive(:puts).with(['date || credit || debit || balance'])
       @account.print_statement
     end
   end
 
-  context 'user makes a deposit' do
+  context 'when the user makes a deposit' do
     it 'shows the deposit on the statement' do
       expect(@io).to receive(:puts).with(['date || credit || debit || balance', '24/07/2022 || || 100.00 || 100.00'])
       @account.deposit(100, '24/07/2022')
@@ -40,7 +40,7 @@ RSpec.describe 'account integration' do
     end
   end
 
-  context 'user makes multiple deposits' do
+  context 'when the user makes multiple deposits' do
     it 'shows 2 deposits when two are made' do
       expect(@io).to receive(:puts).with(
         ['date || credit || debit || balance',
@@ -75,7 +75,7 @@ RSpec.describe 'account integration' do
     end
   end
 
-  context 'user makes a deposit and then a withdrawal' do
+  context 'when the user makes a deposit and then a withdrawal' do
     it 'shows the deposit and withdrawal on the statement' do
       expect(@io).to receive(:puts).with(
         ['date || credit || debit || balance',
@@ -132,7 +132,7 @@ RSpec.describe 'account integration' do
     end
   end
 
-  context 'the user enters an amount with more than 2 decimal places' do
+  context 'when the user enters an amount with more than 2 decimal places' do
     it 'rounds the number up when appropriate' do
       expect(@io).to receive(:puts).with([
         'date || credit || debit || balance',
