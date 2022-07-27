@@ -216,5 +216,21 @@ RSpec.describe 'account integration' do
       @account.print_statement
       @account.print_statement
     end
+
+    it 'shows the second statement with new transactions' do
+      expect(@io).to receive(:puts).with([
+        'date || credit || debit || balance',
+        '24/07/2022 || || 100.00 || 100.00'
+      ])
+      expect(@io).to receive(:puts).with([
+        'date || credit || debit || balance',
+        '24/07/2022 || 50.00 || || 50.00',
+        '24/07/2022 || || 100.00 || 100.00'
+      ])
+      @account.deposit(100, '24/07/2022')
+      @account.print_statement
+      @account.withdraw(50, '24/07/2022')
+      @account.print_statement
+    end
   end
 end
