@@ -14,14 +14,14 @@ class Statement
   end
 
   def statement
-    format_statement
-    return @statement
+    return format_statement
   end
 
   private 
 
-  def format_statement
-    @statement.push('date || credit || debit || balance')
-    @statement = @statement.reverse
+  def format_statement()
+    formatted_statement = @statement.dup
+    formatted_statement.push('date || credit || debit || balance')
+    return formatted_statement.reverse
   end
 end

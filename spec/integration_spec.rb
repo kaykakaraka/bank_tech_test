@@ -202,5 +202,19 @@ RSpec.describe 'account integration' do
     end
   end
 
-  
+  context 'the user requests the statement twice' do
+    it 'shows the statement twice' do
+      expect(@io).to receive(:puts).with([
+        'date || credit || debit || balance',
+        '24/07/2022 || || 100.00 || 100.00'
+      ])
+      expect(@io).to receive(:puts).with([
+        'date || credit || debit || balance',
+        '24/07/2022 || || 100.00 || 100.00'
+      ])
+      @account.deposit(100, '24/07/2022')
+      @account.print_statement
+      @account.print_statement
+    end
+  end
 end
