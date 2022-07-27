@@ -19,7 +19,7 @@ class Statement
 
   private 
 
-  def format_statement()
+  def format_statement
     formatted_statement = @statement.dup
     formatted_statement.push('date || credit || debit || balance')
     return formatted_statement.reverse
